@@ -2,9 +2,9 @@ import React from "react";
 
 export default function Portfolio() {
   const projects = [
- { id: 1, title: "Brand Identity", img: "portfolio 1.png" },
-{ id: 2, title: "Web Design", img: "portfolio 3.png" },
-{ id: 3, title: "Illustration", img: "portfolio 2.png" }, 
+ { id: 1, title: "Brand Identity", img: "portfolioz 1.png" },
+{ id: 2, title: "Web Design", img: "portfolioz 3.png" },
+{ id: 3, title: "Illustration", img: "portfolioz 2.png" }, 
 
   ];
 
