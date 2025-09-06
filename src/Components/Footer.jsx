@@ -33,9 +33,10 @@ export default function Footer() {
       </div>
 
       {/* CopyRight */}
-      <div className="CopyRight" style={{ flexBasis: "100%" }}>
-        <p>© 2025 Ahmed Samy - All Rights Reserved</p>
-      </div>
+   {/* CopyRight */}
+<div className="CopyRight">
+  <p>© 2025 Ahmed Samy - All Rights Reserved</p>
+</div>
     </footer>
   );
 }

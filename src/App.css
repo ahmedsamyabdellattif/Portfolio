@@ -14,6 +14,28 @@ body {
   top: 0;
 }
 
+.about h2 {
+  font-size: 2.2rem;
+}
+
+.about p {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  /* احذف align-items: center; */
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    justify-content: center; /* ✅ توسيط رأسي */
+  min-height: 60vh;  
+}
+
+.about .section {
+  text-align: center;
+  width: 100%;
+}
 
 .navbar a {
   color: white;
@@ -32,9 +54,8 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-weight:bolder;
+  font-weight: bolder;
 }
-
 
 .header {
   display: flex;
@@ -65,13 +86,34 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
+  
 }
+
+
 
 .portfolio-item {
   background: #2c3e50;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* توسيط أفقي */
+  justify-content: center;  /* توسيط رأسي */
+  min-height: 400px;        /* ارتفاع مناسب للكارد */
+  text-align: center;       /* توسيط النص */
 }
+
+.portfolio-item img {
+  width: 100%;
+  height: 350px;
+  object-fit: contain; /* ✅ تظهر الصورة كاملة بدون قص */
+  background: #2c3e50; /* خلفية للكارد خلف الصورة */
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.main-content { justify-content: center;}
 
 .contact-form {
   display: flex;
@@ -98,15 +140,6 @@ body {
 }
 
 
-.footer {
-  background-color: #2c3e50;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 3rem 300px 1rem;
-  text-align: center;
-}
 
 .footer-section {
   flex: 1;
@@ -120,13 +153,30 @@ body {
   cursor: pointer;
 }
 
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end; /* تغيير من center إلى flex-end */
+  flex-wrap: wrap;
+  padding: 3rem 4rem 1rem;
+  text-align: center;
+  position: relative; /* إضافة هذه الخاصية */
+}
+
 .CopyRight {
   width: 100%;
   text-align: center;
   padding-top: 1rem;
   border-top: 1px solid #555;
   font-size: 0.9rem;
+  order: 2;
+  margin: 0 auto;
+  /* احذف position: absolute; وخصائص الموضع */
 }
+
 
 .app-container {
   display: grid;
@@ -134,17 +184,15 @@ body {
   min-height: 100vh;
 }
 
+/* --------------------
+   Responsive Media Queries
+-------------------- */
 
-
-
-
-/* 📱 Media Queries */
-
-/* موبايل صغير */
-@media (max-width: 576px) {
-  .navbar {
-    flex-direction: column;
-    text-align: center;
+/* 📱 Mobile First */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+    padding: 0;
   }
 
   .navbar ul {
@@ -152,40 +200,112 @@ body {
     gap: 1rem;
   }
 
-  h1 {
-    font-size: 1.5rem;
+  .profile-img {
+    width: 120px;
+    height: 120px;
   }
 
-  .cards {
+  .main-content {
+    padding: 1rem;
+  }
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 1rem;
+  justify-content: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+ 
+
+  .footer-section {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    position: static;
+  }
+
+    .CopyRight {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    width: 100%;
+    text-align: center;
+    order: 2;
+    margin: 0 auto;
+    position: static;
+    left: unset;
+    bottom: unset;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-item img {
+    height: 120px;
+    object-fit: contain; /* تأكيد نفس الخاصية للموبايل */
+  }
+}
+@media (max-width: 600px) {
+  .portfolio-item img {
+    height: 120px;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-grid {
     grid-template-columns: 1fr;
+    max-width: 100%;
   }
 }
 
-/* تابلت */
-@media (max-width: 768px) {
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
+/* 📲 Tablets */
+@media (min-width: 601px) and (max-width: 900px) {
+  body {
+    font-size: 16px;
   }
 
-  h1 {
-    font-size: 2rem;
+  .navbar ul {
+    gap: 2rem;
+  }
+
+  .profile-img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .footer {
+    padding: 2rem 4rem;
   }
 }
 
-/* لابتوب */
-@media (max-width: 1024px) {
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
+/* 💻 Large Screens */
+@media (min-width: 901px) and (max-width: 1199px) {
+  .navbar ul {
+    gap: 3rem;
+  }
+
+  .footer {
+    padding: 2rem 6rem;
   }
 }
 
-/* شاشات كبيرة */
+/* 🖥️ Extra Large Screens */
 @media (min-width: 1200px) {
-  .cards {
-    grid-template-columns: repeat(4, 1fr);
+  .footer {
+    padding: 3rem 200px 1rem;
   }
-
-  h1 {
-    font-size: 3rem;
-  }
+}
 }
